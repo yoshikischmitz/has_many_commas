@@ -37,15 +37,7 @@ If you just want an array of rows, call `HasManyCommas::flatten_query(User.all, 
 
 Add this line to your application's Gemfile:
 
-    gem 'has_many_commas'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install has_many_commas
+    gem 'has_many_commas', git: "https://github.com/Takemikazuchi/has_many_commas"
 
 ## Contributing
 
