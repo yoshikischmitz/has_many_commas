@@ -11,19 +11,27 @@ A user can have many comments:
 	user.comments.build({content: "FIRST POST!"}, {content: "Sorry I haven't posted in a long time"})
 	user.save
 
-If we use HasManyCommas, supplying it with a query and an association:
+If we use HasManyCommas, supplying it with a filename, query and an association:
 
-	HasManyCommas::to_csv("./users_and_comments.csv", User.all, :comments)
+	HasManyCommas::to_file("./users_and_comments.csv", User.all, :comments)
 
-We'll get a file like this:
+HasManyCommas will create a CSV file like this:
 
 | user_id | user_username | user_created_at | user_updated_at | user_comments_1_id | user_comments_1_content | user_comments_1_created_at | user_comments_1_updated_at | user_comments_2_id | user_comments_2_content | user_comments_2_created_at | user_comments_2_updated_at|
 ------- | ------------- | --------------- | --------------- | ------------------ | ----------------------- | -------------------------- | -------------------------- | ------------------ | ----------------------- | -------------------------- | -------------------------- |
 |1      | zoroaster     | 2014-07-29 00:10:56 UTC | 2014-07-29 00:10:56 UTC | 2  | FIRST POST!             | 2014-07-29 00:10:56 UT     | 2014-07-29 00:10:56 UT     | 3                  | Sorry I haven't posted in a long time | 2014-07-29 00:10:56 UT | 2014-07-29 00:10:56 UT |
 
-For the child columns, HasManyCommas will only generate as many columns as necessary. If your query includes one record with 12 more associated records, the last column will be `parent_association_12_attriubte`.
+(Note: default write mode is 'w+', see below for other options)
 
-If you need the data in something other than CSV, you can call `HasManyCommas::flatten_query(User.all, :comments)` and get an array of rows to process them elsewhere.
+For the child columns, HasManyCommas will only generate as many columns as necessary. If for example out of your many users, one of them had 100 comments, the final last column would be something like: `user_comments_100_updated_at`
+
+However if you need more control over your output's format, and have some kind of file object that responds to `<<`, like some of the excel spreadsheet gems offer, you can also just supply that to `to_file`:
+
+	# Write CSV in append mode:
+	csv = CSV.open("./results.csv", "a+")
+	HasManyCommas::to_file(csv, User.all, :comments
+
+If you just want an array of rows, call `HasManyCommas::flatten_query(User.all, :comments)`.
 
 ## Installation
 
