@@ -15,7 +15,7 @@ A user can have many comments:
 
 If we use HasManyCommas, supplying it with a query and an association:
 
-	HasManyCommas::to_csv(User.all, :comments)
+	HasManyCommas::to_csv("./users_and_comments.csv", User.all, :comments)
 
 We'll get a file like this:
 
