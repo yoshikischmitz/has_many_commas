@@ -1,11 +1,10 @@
 require "has_many_commas/version"
 
 module HasManyCommas
-  def to_csv(filename, query, association)
-    CSV.open(filename, 'w+') do |csv|
-      flatten_query(query, association).each do |r|
-        csv << r
-      end
+  def to_csv(file_or_filename, query, association)
+    CSV === file_or_filename ? csv = file_or_filename : csv = CSV.open(file_or_filename, "w+")
+    flatten_query(query, association).each do |r|
+      csv << r
     end
   end
 
