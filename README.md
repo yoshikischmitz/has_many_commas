@@ -23,6 +23,9 @@ We'll get a file like this:
 ------- | ------------- | --------------- | --------------- | ------------------ | ----------------------- | -------------------------- | -------------------------- | ------------------ | ----------------------- | -------------------------- | -------------------------- |
 |1      | zoroaster     | 2014-07-29 00:10:56 UTC | 2014-07-29 00:10:56 UTC | 2  | FIRST POST!             | 2014-07-29 00:10:56 UT     | 2014-07-29 00:10:56 UT     | 3                  | Sorry I haven't posted in a long time | 2014-07-29 00:10:56 UT | 2014-07-29 00:10:56 UT |
 
+For the child columns, HasManyCommas will only generate as many columns as necessary. If your query includes one record with 12 more associated records, the last column will be `parent_association_12_attriubte`.
+
+If you need the data in something other than CSV, you can call `HasManyCommas::flatten_query(User.all, :comments)` and get an array of rows to process them elsewhere.
 
 ## Installation
 
@@ -37,10 +40,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install has_many_commas
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
