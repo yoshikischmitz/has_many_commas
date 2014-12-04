@@ -1,7 +1,5 @@
 # HasManyCommas
 
-TODO: Write a gem description
-
 HasManyCommas allows you to take an active_record query, along with a symbol associated to a has_many association on that query's model, and gives a tabular representation of each parent record row along with all of its child records appended as extra columns. 
 
 For example, say you have a user model:
