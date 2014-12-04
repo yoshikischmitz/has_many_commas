@@ -19,11 +19,10 @@ If we use HasManyCommas, supplying it with a query and an association:
 
 We'll get a file like this:
 
-	| user_id | user_username | user_created_at | user_updated_at | user_comments_1_id | user_comments_1_content | user_comments_1_created_at | user_comments_1_updated_at | user_comments_2_id | user_comments_2_content | user_comments_2_created_at | user_comments_2_updated_at|
-	------- | ------------- | --------------- | --------------- | ------------------ | ----------------------- | -------------------------- | -------------------------- | ------------------ | ----------------------- | -------------------------- | -------------------------- |
-	|1      | zoroaster     | 2014-07-29 00:10:56 UTC | 2014-07-29 00:10:56 UTC | 2  | FIRST POST!             | 2014-07-29 00:10:56 UT     | 2014-07-29 00:10:56 UT     | 3                  | Sorry I haven't posted in a long time | 2014-07-29 00:10:56 UT | 2014-07-29 00:10:56 UT |
-	
- that has many comments, you'll get a file with one row per user, with each user's comments appearing in additional columns, like: "user_comment_1", "user_comment_2", "user_comment_3"
+| user_id | user_username | user_created_at | user_updated_at | user_comments_1_id | user_comments_1_content | user_comments_1_created_at | user_comments_1_updated_at | user_comments_2_id | user_comments_2_content | user_comments_2_created_at | user_comments_2_updated_at|
+------- | ------------- | --------------- | --------------- | ------------------ | ----------------------- | -------------------------- | -------------------------- | ------------------ | ----------------------- | -------------------------- | -------------------------- |
+|1      | zoroaster     | 2014-07-29 00:10:56 UTC | 2014-07-29 00:10:56 UTC | 2  | FIRST POST!             | 2014-07-29 00:10:56 UT     | 2014-07-29 00:10:56 UT     | 3                  | Sorry I haven't posted in a long time | 2014-07-29 00:10:56 UT | 2014-07-29 00:10:56 UT |
+
 
 ## Installation
 
