@@ -43,4 +43,6 @@ module HasManyCommas
   def snake_case_class_name(str)
     str.delete(?:).underscore
   end
+
+  module_function :to_csv, :flatten_query
 end
