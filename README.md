@@ -2,6 +2,29 @@
 
 TODO: Write a gem description
 
+HasManyCommas allows you to take an active_record query, along with a symbol associated to a has_many association on that query's model, and gives a tabular representation of each parent record row along with all of its child records appended as extra columns. 
+
+For example, say you have a user model:
+
+	user = User.create(username: "zoroaster")
+
+A user can have many comments:
+
+	user.comments.build({content: "FIRST POST!"}, {content: "Sorry I haven't posted in a long time"})
+	user.save
+
+If we use HasManyCommas, supplying it with a query and an association:
+
+	HasManyCommas::to_csv(User.all, :comments)
+
+We'll get a file like this:
+
+	| user_id | user_username | user_created_at | user_updated_at | user_comments_1_id | user_comments_1_content | user_comments_1_created_at | user_comments_1_updated_at | user_comments_2_id | user_comments_2_content | user_comments_2_created_at | user_comments_2_updated_at|
+	------- | ------------- | --------------- | --------------- | ------------------ | ----------------------- | -------------------------- | -------------------------- | ------------------ | ----------------------- | -------------------------- | -------------------------- |
+	|1      | zoroaster     | 2014-07-29 00:10:56 UTC | 2014-07-29 00:10:56 UTC | 2  | FIRST POST!             | 2014-07-29 00:10:56 UT     | 2014-07-29 00:10:56 UT     | 3                  | Sorry I haven't posted in a long time | 2014-07-29 00:10:56 UT | 2014-07-29 00:10:56 UT |
+	
+ that has many comments, you'll get a file with one row per user, with each user's comments appearing in additional columns, like: "user_comment_1", "user_comment_2", "user_comment_3"
+
 ## Installation
 
 Add this line to your application's Gemfile:
