@@ -1,7 +1,15 @@
 require "has_many_commas/version"
 
 module HasManyCommas
-  def to_csv(query, association)
+  def to_csv(filename, query, association)
+    CSV.open(filename, 'w+') do |csv|
+      flatten_query(query, association).each do |r|
+        csv << r
+      end
+    end
+  end
+
+  def flatten_query(query, association)
     max = 0
     metadata = get_model_metadata(query.model, association)
     rows = 
