@@ -6,10 +6,10 @@ require 'has_many_commas/version'
 Gem::Specification.new do |spec|
   spec.name          = "has_many_commas"
   spec.version       = HasManyCommas::VERSION
-  spec.authors       = ["TODO: Write your name"]
+  spec.authors       = ["Yoshiki Schmitz"]
   spec.email         = ["yoshikischmitz@outlook.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{A ruby gem for writing active_record has_many query results to tabular flat-files like CSV.}
+  spec.description   = %q{Takes active_record queries, along with a symbol associated to a has_many association, and gives a tabular representation of each parent record row along with all of its child records appended as extra columns. If you have a user model, that has many comments, you'll get a file with one row per user, with each user's comments appearing in additional columns, like: "user_comment_1", "user_comment_2", "user_comment_3"}
   spec.homepage      = ""
   spec.license       = "MIT"
 
