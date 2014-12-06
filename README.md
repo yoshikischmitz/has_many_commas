@@ -29,7 +29,7 @@ However if you need more control over your output's format, and have some kind o
 
 	# Write CSV in append mode:
 	csv = CSV.open("./results.csv", "a+")
-	HasManyCommas::to_file(csv, User.all, :comments
+	HasManyCommas::to_file(csv, User.all, :comments)
 
 If you just want an array of rows, call `HasManyCommas::flatten_query(User.all, :comments)`.
 
