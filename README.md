@@ -37,11 +37,11 @@ If you just want an array of rows, call `HasManyCommas::flatten_query(User.all, 
 
 Add this line to your application's Gemfile:
 
-    gem 'has_many_commas', git: "https://github.com/Takemikazuchi/has_many_commas"
+    gem 'has_many_commas', git: "https://github.com/yoshikischmitz/has_many_commas"
 
 ## Contributing
 
-1. Fork it ( https://github.com/takemikazuchi/has_many_commas/fork )
+1. Fork it ( https://github.com/yoshikischmitz/has_many_commas/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
